@@ -1,0 +1,101 @@
+local program = require "/os/apis/programs"
+
+term.setCursorPos(1, 1)
+
+local function main()
+programs = {
+  program.new(function()
+    shell.run("paint", "tes")
+  end, 5, 5, 20, 10),
+  program.new(function()
+    shell.run("edit", "tes")
+  end, 1, 2, 10, 7),
+  program.new(function()
+    shell.run("worm")
+  end, 30, 2, 15, 9),
+  program.new(function()
+    while true do
+      term.setBackgroundColor(colors.white)
+      term.clear()
+      print("Hello World!")
+      coroutine.yield()
+    end
+  end, 28, 10, 20, 10)
+}
+
+while true do
+  local event, var1, var2, var3 = os.pullEventRaw()
+  if event == "terminate" then error("MANUALLY_INITIATED_CRASH") end
+
+  term.setBackgroundColor(colors.lightBlue)
+  term.clear()
+  program.update(programs, event, var1, var2, var3)
+end
+
+term.setBackgroundColor(colors.lightBlue)
+term.clear()
+term.setCursorPos(1, 1)
+return true
+end
+
+local ok, err = pcall(main)
+
+if not ok then
+  paintutils.drawFilledBox(1, 1, 80, 1, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 2, 80, 2, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 3, 80, 3, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 4, 80, 4, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 5, 80, 5, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 6, 80, 6, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 7, 80, 7, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 8, 80, 8, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 9, 80, 9, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 10, 80, 10, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 11, 80, 11, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 12, 80, 12, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 13, 80, 13, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 14, 80, 14, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 15, 80, 15, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 16, 80, 16, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 17, 80, 17, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 18, 80, 18, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 19, 80, 19, colors.blue)
+  sleep(0.02)
+  paintutils.drawFilledBox(1, 20, 80, 20, colors.blue)
+  sleep(0.02)
+  term.setCursorPos(1, 1)
+  term.clear()
+term.setBackgroundColor( colors.blue )
+term.setTextColor( colors.white )
+term.clear()
+print( [[
+
+A problem has been detected and GT-MOS has been shut down to prevent damage to your computer.
+If this is the first time you've seen this stop error screen, restart your computer.  
+If this screen appears again, follow these steps:
+Check to make sure any new hardware software is properly installed.  If this is a new installation, check for any GT-MOS updates you might need.
+If problems continue, remove any newly installed software. If you need to use safe mode to remove or disable components, restart your computer, and select Advanced Startup Options, and then select Safe Mode.
+
+Technical Information:
+*** ]], err)
+os.pullEvent( "key" )
+os.reboot()
+end
