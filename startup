@@ -1,2 +1,40 @@
-shell.run("pastebin get ucVAqbDR installer")
-shell.run(installer)
+
+local o = 1
+
+while true do
+ term.clear()
+ term.setCursorPos(1,1)
+ if o == 1 then
+  print("Login <")
+  print("Update")
+  print("Advance Settings")
+ elseif o == 2 then
+  print("Login")
+  print("Update <")
+  print("Advance Settings")
+ elseif o == 3 then
+  print("Login")
+  print("Update")
+  print("Advance Settings <")
+ end
+ _, key = os.pullEvent("key")
+ if key == keys.up and o > 1 then
+  o = o - 1
+ elseif key == keys.down and o < 3 then
+  o = o + 1
+ elseif key == keys.enter then
+  break
+ end
+end
+
+if o == 1 then
+ shell.run("os/os")
+elseif o == 2 then
+  shell.run("pastebin get ucVAqbDR installer")
+  shell.run(installer)
+  update = 0
+elseif o == 3 then
+  break 
+end
+
+
