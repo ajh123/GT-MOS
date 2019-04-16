@@ -1,1 +1,2 @@
 shell.run("pastebin get ucVAqbDR installer")
+shell.run(installer)
