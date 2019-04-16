@@ -30,11 +30,11 @@ end
 if o == 1 then
  shell.run("os/os")
 elseif o == 2 then
- shell.run("pastebin get EYvs8Nu6 installer")
+ shell.run("pastebin get EYvs8Nu6 installer.lua")
  shell.run("installer.lua")
  update = 0
 elseif o == 3 then
- print(" ")
+ shell.run("/rom/programs/shell")
 end
 
 
