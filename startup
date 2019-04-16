@@ -34,7 +34,7 @@ elseif o == 2 then
   shell.run(installer)
   update = 0
 elseif o == 3 then
-
+ print(" ")
 end
 
 
