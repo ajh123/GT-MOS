@@ -30,7 +30,10 @@ end
 if o == 1 then
  shell.run("os/os")
 elseif o == 2 then
+ shell.run
+ shell.run("rm /os/")
  shell.run("pastebin get EYvs8Nu6 installer.lua")
+ shell.run("/startup.lua")
  shell.run("installer.lua")
  update = 0
 elseif o == 3 then
