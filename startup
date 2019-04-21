@@ -15,7 +15,7 @@ while true do
  elseif o == 3 then
   print("Login")
   print("Update")
-  print("Advance Settings <")
+  print("Advance Startup Options <")
  end
  _, key = os.pullEvent("key")
  if key == keys.up and o > 1 then
